@@ -9,7 +9,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Github Repository 파일 불러오기
+      - name : Github Repository 파일 불러오기
         uses: actions/checkout@v4
 
       - name: 의존성 설치
@@ -30,5 +30,5 @@ jobs:
           aws s3 rm --recursive s3://dev-youtube-web-prac
           aws s3 cp ./dist s3://dev-youtube-web-prac/ --recursive
 
-      - name: CloudFront 캐시 무효화
+      - name: Cloudfront 캐시 무효화
         run: aws cloudfront create-invalidation --distribution-id E2PYP5SUSH9I7M --paths "/*"
